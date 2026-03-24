@@ -608,6 +608,22 @@
       }
     }
 
+    @media (max-width: 420px) {
+      .banner {
+        width: 100%;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-right: 8px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        font-size: 0.8rem;
+      }
+
+      .banner::-webkit-scrollbar { display: none; }
+    }
+
     @media (max-width: 600px) {
       .btn, .order { width: 100%; justify-content: center; }
       .market-board { gap: 10px; }
