@@ -8,7 +8,7 @@
     /* ============================
        e-Theeram Foods — Live Market UI
        ============================ */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700&family=Noto+Sans+Malayalam:wght@300;400;500;600&family=Manjari:wght@400;700&display=swap');
 
     :root {
       --deep: #062b3a;
@@ -34,6 +34,11 @@
         radial-gradient(900px 500px at 100% 0%, rgba(11, 110, 139, 0.18), transparent 60%),
         linear-gradient(180deg, #f6feff 0%, #ecf9fb 65%, #ffffff 100%);
       overflow-x: hidden;
+    }
+
+    body.lang-ml {
+      font-size: 13.5px;
+      font-family: 'Noto Sans Malayalam', 'Inter', sans-serif;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -63,6 +68,7 @@
       background: rgba(255, 255, 255, 0.78);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--line);
+      overflow: visible;
     }
 
     .statusbar {
@@ -78,6 +84,13 @@
       padding: 14px 0;
     }
 
+    body.lang-ml .nav-links,
+    body.lang-ml .lang-trigger,
+    body.lang-ml .lang-option,
+    body.lang-ml .topbar-right {
+      font-size: 11px;
+    }
+
     .location {
       display: flex;
       flex-wrap: wrap;
@@ -85,6 +98,10 @@
       align-items: center;
       font-weight: 500;
       font-size: 0.95rem;
+    }
+
+    body.lang-ml .location {
+      font-size: 11px;
     }
 
     .pill {
@@ -103,6 +120,11 @@
       background: rgba(29, 191, 141, 0.15);
       border-color: rgba(29, 191, 141, 0.35);
       color: #0a5e49;
+    }
+
+    body.lang-ml .pill.live,
+    body.lang-ml .pill.live.closed {
+      font-size: 0.82rem;
     }
 
     .pill.live.closed {
@@ -197,6 +219,7 @@
       background: rgba(255, 255, 255, 0.7);
       font-weight: 600;
       font-size: 0.9rem;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
       cursor: pointer;
     }
 
@@ -314,12 +337,23 @@
       letter-spacing: -0.02em;
     }
 
+    body.lang-ml h1,
+    body.lang-ml h2,
+    body.lang-ml h3 {
+      font-family: 'Manjari', 'Poppins', sans-serif;
+    }
+
+    body.lang-ml .hero h1 {
+      font-size: clamp(1.55rem, 2.9vw, 2.4rem);
+    }
+
     .hero p {
       font-size: 1.05rem;
       line-height: 1.75;
       opacity: 0.85;
       margin-bottom: 26px;
     }
+
 
     .banner {
       display: flex;
@@ -334,6 +368,10 @@
       width: fit-content;
       margin-bottom: 22px;
       color: var(--deep);
+    }
+
+    body.lang-ml .banner {
+      font-size: 11px;
     }
 
     .banner .icon {
@@ -370,12 +408,20 @@
 
     .board-row span { font-weight: 600; }
 
+    body.lang-ml .board-row span {
+      font-size: 11px;
+    }
+
     .board-tag {
       padding: 6px 10px;
       border-radius: 999px;
       background: rgba(242, 166, 84, 0.2);
       border: 1px solid rgba(242, 166, 84, 0.5);
       font-size: 0.85rem;
+    }
+
+    body.lang-ml .board-tag {
+      font-size: 11px;
     }
 
     /* ============================
@@ -511,6 +557,10 @@
       gap: 6px;
     }
 
+    body.lang-ml .badge {
+      font-size: 10px;
+    }
+
     .badge.warn {
       background: rgba(242, 166, 84, 0.2);
       border-color: rgba(242, 166, 84, 0.5);
@@ -524,6 +574,10 @@
       border: 1px solid var(--line);
       padding: 8px 14px;
       font-size: 0.85rem;
+    }
+
+    body.lang-ml .order {
+      font-size: 10px;
     }
 
     /* ============================
@@ -545,6 +599,7 @@
       font-size: 1.9rem;
       line-height: 1.2;
     }
+
 
     .cta-copy {
       display: flex;
@@ -581,11 +636,19 @@
        ============================ */
     @media (max-width: 900px) {
       body { font-size: 15px; }
+      body.lang-ml { font-size: 13px; }
       .hero-grid { grid-template-columns: 1fr; }
       .topbar-inner { grid-template-columns: 1fr; }
       .topbar-actions { justify-content: flex-start; flex-wrap: wrap; }
       .hero { text-align: center; }
       .hero h1 { font-size: clamp(2rem, 7.2vw, 2.8rem); }
+      body.lang-ml .hero h1 {
+        font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+        letter-spacing: 0.3px;
+        word-spacing: 1px;
+        line-height: 1.2;
+      }
+      body.lang-ml .hero p { font-size: 0.9rem; }
       .banner {
         margin-left: auto;
         margin-right: auto;
@@ -593,6 +656,7 @@
         justify-content: flex-start;
         font-size: 0.85rem;
       }
+      body.lang-ml .banner { font-size: 10px; }
       .filters-scroll {
         overflow-x: auto;
         overflow-y: hidden;
@@ -619,6 +683,18 @@
       .filter-btn {
         white-space: nowrap;
         flex: 0 0 auto;
+      }
+    }
+
+    @media (max-width: 900px) {
+      body.lang-ml .cta-strip h3 {
+        font-size: 0.95rem;
+      }
+      body.lang-ml .cta-strip p {
+        font-size: 0.84rem;
+      }
+      body.lang-ml .cta-strip .btn {
+        font-size: 11px;
       }
     }
 
@@ -649,14 +725,26 @@
       .menu-toggle { display: inline-flex; }
       .lang-dropdown { display: none; }
       .mobile-menu {
-        width: min(360px, 90vw);
-        margin-left: auto;
-        margin-right: auto;
+        position: absolute;
+        right: 12px;
+        top: 100%;
+        width: min(240px, 80vw);
+        margin: 8px 0 0;
         background: rgba(255, 255, 255, 0.9);
         border: 1px solid var(--line);
         border-radius: 16px;
         padding: 14px;
         box-shadow: var(--shadow);
+        text-align: left;
+        align-items: flex-start;
+        z-index: 1000;
+      }
+
+      .mobile-menu .btn {
+        font-size: 0.85rem;
+        padding: 8px 14px;
+        justify-content: flex-start;
+        width: 100%;
       }
 
       .location {
@@ -712,6 +800,17 @@
       }
     }
 
+    @media (max-width: 900px) {
+      body.lang-ml .board-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      body.lang-ml .board-tag {
+        display: block;
+      }
+    }
+
     .mobile-menu .lang-dropdown {
       display: block;
       width: 100%;
@@ -732,6 +831,10 @@
         padding-right: 0;
         font-size: 0.78rem;
         gap: 6px;
+      }
+
+      body.lang-ml .banner {
+        font-size: 10px;
       }
 
       .banner .icon {
@@ -761,6 +864,8 @@
       .hero p {
         font-size: 0.95rem;
       }
+
+      body.lang-ml { font-size: 12.5px; }
     }
 
     @media (max-width: 600px) {
@@ -776,18 +881,19 @@
   <div class="topbar">
     <div class="container statusbar">
       <div class="location">
-        <span class="pill live" id="liveStatusPill"><span class="dot"></span> Live Market • Updated <span id="liveUpdateTime">--:--</span></span>
+        <span class="pill live" id="liveStatusPill"><span class="dot"></span> <span data-i18n="live_market_updated">Live Market • Updated</span> <span id="liveUpdateTime">--:--</span></span>
         <span class="pill">
           <span class="icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M12 2c-3.87 0-7 3.13-7 7 0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
           </span>
-          Ernakulam Zone Only
+          <span data-i18n="ernakulam_zone_only">Ernakulam Zone Only</span>
         </span>
         <span class="pill">
           <span class="icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12a11.9 11.9 0 0 0 3.5 8.5L0 24l3.7-3.5A11.9 11.9 0 0 0 12 24c6.6 0 12-5.4 12-12a11.9 11.9 0 0 0-3.5-8.5zM12 22a10 10 0 0 1-5.1-1.4l-.4-.2-3 .9 1-2.9-.2-.4A10 10 0 1 1 12 22zm5.6-7.5c-.3-.1-1.9-.9-2.2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.2c-.2-.3 0-.5.1-.6l.5-.6c.1-.2.1-.3.2-.5s0-.3 0-.5-.7-1.7-1-2.3c-.3-.6-.6-.5-.8-.5h-.7c-.2 0-.5.1-.7.3-.2.2-.9.8-.9 2s.9 2.5 1 2.6c.1.2 1.8 2.7 4.4 3.7.6.3 1.1.4 1.5.5.6.2 1.1.2 1.5.1.5-.1 1.9-.8 2.1-1.6.3-.8.3-1.4.2-1.6s-.3-.2-.6-.3z"/></svg>
           </span>
-          WhatsApp Orders: +91 99999 99999
+          <span data-i18n="whatsapp_orders">WhatsApp Orders:</span>
+          <span>+91 99999 99999</span>
         </span>
       </div>
     </div>
@@ -797,9 +903,9 @@
         e-Theeram Foods
       </a>
       <nav class="nav-links" aria-label="Primary">
-        <a href="#home">Home</a>
-        <a href="#products">Today's Catch</a>
-        <a href="#footer">Service Zones</a>
+        <a href="#home" data-i18n="nav_home">Home</a>
+        <a href="#products" data-i18n="nav_today_catch">Today's Catch</a>
+        <a href="#footer" data-i18n="nav_service_zones">Service Zones</a>
       </nav>
       <div class="lang-dropdown">
         <button class="lang-trigger" type="button" aria-expanded="false">
@@ -817,13 +923,13 @@
             <span class="icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M3 5h18v2H3V5zm0 6h18v2H3v-2zm0 6h18v2H3v-2z"/></svg>
             </span>
-            Browse Catch
+            <span data-i18n="browse_catch">Browse Catch</span>
           </a>
           <a class="btn btn-primary" href="https://wa.me/919999999999" target="_blank" rel="noopener">
             <span class="icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12a11.9 11.9 0 0 0 3.5 8.5L0 24l3.7-3.5A11.9 11.9 0 0 0 12 24c6.6 0 12-5.4 12-12a11.9 11.9 0 0 0-3.5-8.5zM12 22a10 10 0 0 1-5.1-1.4l-.4-.2-3 .9 1-2.9-.2-.4A10 10 0 1 1 12 22zm5.6-7.5c-.3-.1-1.9-.9-2.2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.2c-.2-.3 0-.5.1-.6l.5-.6c.1-.2.1-.3.2-.5s0-.3 0-.5-.7-1.7-1-2.3c-.3-.6-.6-.5-.8-.5h-.7c-.2 0-.5.1-.7.3-.2.2-.9.8-.9 2s.9 2.5 1 2.6c.1.2 1.8 2.7 4.4 3.7.6.3 1.1.4 1.5.5.6.2 1.1.2 1.5.1.5-.1 1.9-.8 2.1-1.6.3-.8.3-1.4.2-1.6s-.3-.2-.6-.3z"/></svg>
             </span>
-            Quick Order on WhatsApp
+            <span data-i18n="quick_order_whatsapp">Quick Order on WhatsApp</span>
           </a>
         </div>
         <button class="menu-toggle" aria-label="Open menu">
@@ -834,9 +940,9 @@
       </div>
     </div>
     <div class="container mobile-menu" id="mobileMenu">
-      <a class="btn btn-ghost" href="#home">Home</a>
-      <a class="btn btn-ghost" href="#products">Today's Catch</a>
-      <a class="btn btn-ghost" href="#footer">Service Zones</a>
+      <a class="btn btn-ghost" href="#home" data-i18n="nav_home">Home</a>
+      <a class="btn btn-ghost" href="#products" data-i18n="nav_today_catch">Today's Catch</a>
+      <a class="btn btn-ghost" href="#footer" data-i18n="nav_service_zones">Service Zones</a>
       <div class="lang-dropdown">
         <button class="lang-trigger" type="button" aria-expanded="false">
           <span class="current-lang">English</span>
@@ -847,8 +953,8 @@
           <button class="lang-option" type="button" data-lang="Malayalam">മലയാളം</button>
         </div>
       </div>
-      <a class="btn btn-ghost" href="#products">Browse Catch</a>
-      <a class="btn btn-primary" href="https://wa.me/919999999999" target="_blank" rel="noopener">Quick Order on WhatsApp</a>
+      <a class="btn btn-ghost" href="#products" data-i18n="browse_catch">Browse Catch</a>
+      <a class="btn btn-primary" href="https://wa.me/919999999999" target="_blank" rel="noopener" data-i18n="quick_order_whatsapp">Quick Order on WhatsApp</a>
     </div>
   </div>
 
@@ -862,26 +968,26 @@
           <span class="icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M12 3l9 4.5-9 4.5-9-4.5L12 3zm0 8.5l7.2-3.6L12 4.4 4.8 7.9 12 11.5zm0 3l9-4.5V16l-9 4.5L3 16v-5.5l9 4.5z"/></svg>
           </span>
-          Today's Fresh Catch
+          <span data-i18n="banner_fresh_catch">Today's Fresh Catch</span>
           <span class="icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
           </span>
-          Limited Stocks Rolling In
+          <span data-i18n="banner_limited_stock">Limited Stocks Rolling In</span>
         </div>
-        <h1>e-Theeram Foods brings the live fish market to your phone.</h1>
-        <p>Hand-picked fish updated every morning. Choose your cut, lock your quantity, and we deliver fresh to your doorstep in Ernakulam — all confirmed instantly over WhatsApp.</p>
+        <h1 data-i18n="hero_title">e-Theeram Foods brings the live fish market to your phone.</h1>
+        <p data-i18n="hero_subtitle">Hand-picked fish updated every morning. Choose your cut, lock your quantity, and we deliver fresh to your doorstep in Ernakulam — all confirmed instantly over WhatsApp.</p>
       </div>
       <div class="market-board">
         <div class="board-row">
-          <span><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg></span> Catch Arrival</span>
-          <span class="board-tag"><span id="catchTime">--:--</span> • Fort Kochi</span>
+          <span><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg></span> <span data-i18n="catch_arrival">Catch Arrival</span></span>
+          <span class="board-tag"><span id="catchTime">--:--</span> • <span data-i18n="fort_kochi">Fort Kochi</span></span>
         </div>
         <div class="board-row">
-          <span><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1zm1 11.6 4.2 2.4-.9 1.6L11 13V6h2z"/></svg></span> Next Update</span>
-          <span class="board-tag"><span id="nextUpdateTime">--:--</span> • Live Refresh</span>
+          <span><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1zm1 11.6 4.2 2.4-.9 1.6L11 13V6h2z"/></svg></span> <span data-i18n="next_update">Next Update</span></span>
+          <span class="board-tag"><span id="nextUpdateTime">--:--</span> • <span data-i18n="live_refresh">Live Refresh</span></span>
         </div>
         <div class="board-row">
-          <span><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7h18v10H3V7zm2 2v6h14V9H5zm5-6h4v2h-4V3z"/></svg></span> Delivery Window</span>
+          <span><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7h18v10H3V7zm2 2v6h14V9H5zm5-6h4v2h-4V3z"/></svg></span> <span data-i18n="delivery_window">Delivery Window</span></span>
           <span class="board-tag"><span id="deliveryWindow">--:--</span></span>
         </div>
       </div>
@@ -897,19 +1003,19 @@
         <div class="filters" aria-label="Category Filters">
           <button class="filter-btn active" data-filter="all">
             <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"/></svg></span>
-            All Catch
+            <span data-i18n="filter_all">All Catch</span>
           </button>
           <button class="filter-btn" data-filter="sea">
             <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 12c2-2 4-3 7-3 2 0 3-2 4-3 1 1 2 3 4 3 3 0 5 1 7 3-2 2-4 3-7 3-2 0-3 2-4 3-1-1-2-3-4-3-3 0-5-1-7-3z"/></svg></span>
-            Sea Fish
+            <span data-i18n="filter_sea">Sea Fish</span>
           </button>
           <button class="filter-btn" data-filter="freshwater">
             <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2c3 3 6 6 6 10a6 6 0 0 1-12 0c0-4 3-7 6-10z"/></svg></span>
-            Freshwater
+            <span data-i18n="filter_freshwater">Freshwater</span>
           </button>
           <button class="filter-btn" data-filter="premium">
             <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.7 4.1 2.2 7-6.5-4.3-6.5 4.3 2.2-7L2 9h7l3-7z"/></svg></span>
-            Premium
+            <span data-i18n="filter_premium">Premium</span>
           </button>
         </div>
       </div>
@@ -925,10 +1031,10 @@
               <span><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4h10v2H7V4zm-3 4h16v12H4V8zm3 2v8h10v-8H7z"/></svg></span> Avg: 900g</span>
             </div>
             <div class="card-actions">
-              <div class="badge"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l1.4-1.4L9 13.4l8.8-8.8L19.2 6z"/></svg></span> Fresh Today</div>
+              <div class="badge"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l1.4-1.4L9 13.4l8.8-8.8L19.2 6z"/></svg></span> <span data-i18n="fresh_today">Fresh Today</span></div>
               <button class="btn order" data-name="Seer Fish (Vanjaram)">
                 <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12a11.9 11.9 0 0 0 3.5 8.5L0 24l3.7-3.5A11.9 11.9 0 0 0 12 24c6.6 0 12-5.4 12-12a11.9 11.9 0 0 0-3.5-8.5z"/></svg></span>
-                Order via WhatsApp
+                <span data-i18n="order_whatsapp">Order via WhatsApp</span>
               </button>
             </div>
           </div>
@@ -944,10 +1050,10 @@
               <span><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4h10v2H7V4zm-3 4h16v12H4V8zm3 2v8h10v-8H7z"/></svg></span> Avg: 400g</span>
             </div>
             <div class="card-actions">
-              <div class="badge"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l1.4-1.4L9 13.4l8.8-8.8L19.2 6z"/></svg></span> Fresh Today</div>
+              <div class="badge"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l1.4-1.4L9 13.4l8.8-8.8L19.2 6z"/></svg></span> <span data-i18n="fresh_today">Fresh Today</span></div>
               <button class="btn order" data-name="Pearl Spot (Karimeen)">
                 <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12a11.9 11.9 0 0 0 3.5 8.5L0 24l3.7-3.5A11.9 11.9 0 0 0 12 24c6.6 0 12-5.4 12-12a11.9 11.9 0 0 0-3.5-8.5z"/></svg></span>
-                Order via WhatsApp
+                <span data-i18n="order_whatsapp">Order via WhatsApp</span>
               </button>
             </div>
           </div>
@@ -963,10 +1069,10 @@
               <span><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4h10v2H7V4zm-3 4h16v12H4V8zm3 2v8h10v-8H7z"/></svg></span> Avg: 18 pcs</span>
             </div>
             <div class="card-actions">
-              <div class="badge warn"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></span> Limited Stock</div>
+              <div class="badge warn"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></span> <span data-i18n="limited_stock">Limited Stock</span></div>
               <button class="btn order" data-name="Sardine (Mathi)">
                 <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12a11.9 11.9 0 0 0 3.5 8.5L0 24l3.7-3.5A11.9 11.9 0 0 0 12 24c6.6 0 12-5.4 12-12a11.9 11.9 0 0 0-3.5-8.5z"/></svg></span>
-                Order via WhatsApp
+                <span data-i18n="order_whatsapp">Order via WhatsApp</span>
               </button>
             </div>
           </div>
@@ -982,10 +1088,10 @@
               <span><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4h10v2H7V4zm-3 4h16v12H4V8zm3 2v8h10v-8H7z"/></svg></span> Size: 20/30</span>
             </div>
             <div class="card-actions">
-              <div class="badge"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l1.4-1.4L9 13.4l8.8-8.8L19.2 6z"/></svg></span> Fresh Today</div>
+              <div class="badge"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l1.4-1.4L9 13.4l8.8-8.8L19.2 6z"/></svg></span> <span data-i18n="fresh_today">Fresh Today</span></div>
               <button class="btn order" data-name="White Prawns">
                 <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12a11.9 11.9 0 0 0 3.5 8.5L0 24l3.7-3.5A11.9 11.9 0 0 0 12 24c6.6 0 12-5.4 12-12a11.9 11.9 0 0 0-3.5-8.5z"/></svg></span>
-                Order via WhatsApp
+                <span data-i18n="order_whatsapp">Order via WhatsApp</span>
               </button>
             </div>
           </div>
@@ -1001,10 +1107,10 @@
               <span><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4h10v2H7V4zm-3 4h16v12H4V8zm3 2v8h10v-8H7z"/></svg></span> Avg: 1.2 kg</span>
             </div>
             <div class="card-actions">
-              <div class="badge warn"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></span> Limited Stock</div>
+              <div class="badge warn"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></span> <span data-i18n="limited_stock">Limited Stock</span></div>
               <button class="btn order" data-name="King Fish (Neymeen)">
                 <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12a11.9 11.9 0 0 0 3.5 8.5L0 24l3.7-3.5A11.9 11.9 0 0 0 12 24c6.6 0 12-5.4 12-12a11.9 11.9 0 0 0-3.5-8.5z"/></svg></span>
-                Order via WhatsApp
+                <span data-i18n="order_whatsapp">Order via WhatsApp</span>
               </button>
             </div>
           </div>
@@ -1020,10 +1126,10 @@
               <span><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4h10v2H7V4zm-3 4h16v12H4V8zm3 2v8h10v-8H7z"/></svg></span> Avg: 600g</span>
             </div>
             <div class="card-actions">
-              <div class="badge"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l1.4-1.4L9 13.4l8.8-8.8L19.2 6z"/></svg></span> Fresh Today</div>
+              <div class="badge"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l1.4-1.4L9 13.4l8.8-8.8L19.2 6z"/></svg></span> <span data-i18n="fresh_today">Fresh Today</span></div>
               <button class="btn order" data-name="Tilapia">
                 <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12a11.9 11.9 0 0 0 3.5 8.5L0 24l3.7-3.5A11.9 11.9 0 0 0 12 24c6.6 0 12-5.4 12-12a11.9 11.9 0 0 0-3.5-8.5z"/></svg></span>
-                Order via WhatsApp
+                <span data-i18n="order_whatsapp">Order via WhatsApp</span>
               </button>
             </div>
           </div>
@@ -1039,10 +1145,10 @@
               <span><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4h10v2H7V4zm-3 4h16v12H4V8zm3 2v8h10v-8H7z"/></svg></span> Size: L</span>
             </div>
             <div class="card-actions">
-              <div class="badge"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l1.4-1.4L9 13.4l8.8-8.8L19.2 6z"/></svg></span> Fresh Today</div>
+              <div class="badge"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l1.4-1.4L9 13.4l8.8-8.8L19.2 6z"/></svg></span> <span data-i18n="fresh_today">Fresh Today</span></div>
               <button class="btn order" data-name="Crab (Nandu)">
                 <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12a11.9 11.9 0 0 0 3.5 8.5L0 24l3.7-3.5A11.9 11.9 0 0 0 12 24c6.6 0 12-5.4 12-12a11.9 11.9 0 0 0-3.5-8.5z"/></svg></span>
-                Order via WhatsApp
+                <span data-i18n="order_whatsapp">Order via WhatsApp</span>
               </button>
             </div>
           </div>
@@ -1058,10 +1164,10 @@
               <span><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4h10v2H7V4zm-3 4h16v12H4V8zm3 2v8h10v-8H7z"/></svg></span> Avg: 5 pcs</span>
             </div>
             <div class="card-actions">
-              <div class="badge"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l1.4-1.4L9 13.4l8.8-8.8L19.2 6z"/></svg></span> Fresh Today</div>
+              <div class="badge"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l1.4-1.4L9 13.4l8.8-8.8L19.2 6z"/></svg></span> <span data-i18n="fresh_today">Fresh Today</span></div>
               <button class="btn order" data-name="Squid (Koonthal)">
                 <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12a11.9 11.9 0 0 0 3.5 8.5L0 24l3.7-3.5A11.9 11.9 0 0 0 12 24c6.6 0 12-5.4 12-12a11.9 11.9 0 0 0-3.5-8.5z"/></svg></span>
-                Order via WhatsApp
+                <span data-i18n="order_whatsapp">Order via WhatsApp</span>
               </button>
             </div>
           </div>
@@ -1070,14 +1176,14 @@
 
       <div class="cta-strip">
         <div class="cta-copy">
-          <h3>Need a custom mix? We’ll pack it for you.</h3>
-          <p>Send a quick list with quantities — we confirm availability instantly and reserve your slot.</p>
+          <h3 data-i18n="cta_title">Need a custom mix? We’ll pack it for you.</h3>
+          <p data-i18n="cta_subtitle">Send a quick list with quantities — we confirm availability instantly and reserve your slot.</p>
         </div>
         <a class="btn btn-primary" href="https://wa.me/919999999999" target="_blank" rel="noopener">
           <span class="icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12a11.9 11.9 0 0 0 3.5 8.5L0 24l3.7-3.5A11.9 11.9 0 0 0 12 24c6.6 0 12-5.4 12-12a11.9 11.9 0 0 0-3.5-8.5z"/></svg>
           </span>
-          WhatsApp e-Theeram Foods
+          <span data-i18n="cta_whatsapp">WhatsApp e-Theeram Foods</span>
         </a>
       </div>
     </div>
@@ -1085,14 +1191,88 @@
 
   <footer id="footer">
     <div class="container">
-      e-Theeram Foods • Fresh catch updates daily • Serving select Ernakulam zones only
+      <span data-i18n="footer_line">e-Theeram Foods • Fresh catch updates daily • Serving select Ernakulam zones only</span>
     </div>
     <div class="container footer-made">
-      Made with love <span class="heart" aria-hidden="true">♥</span> by Sree
+      <span data-i18n="footer_made">Made with love</span> <span class="heart" aria-hidden="true">♥</span> <span data-i18n="footer_by">by Sree</span>
     </div>
   </footer>
 
   <script>
+    const translations = {
+      English: {
+        live_market_updated: 'Live Market • Updated',
+        ernakulam_zone_only: 'Ernakulam Zone Only',
+        whatsapp_orders: 'WhatsApp Orders:',
+        nav_home: 'Home',
+        nav_today_catch: "Today's Catch",
+        nav_service_zones: 'Service Zones',
+        browse_catch: 'Browse Catch',
+        quick_order_whatsapp: 'Quick Order on WhatsApp',
+        banner_fresh_catch: "Today's Fresh Catch",
+        banner_limited_stock: 'Limited Stocks Rolling In',
+        hero_title: 'e-Theeram Foods brings the live fish market to your phone.',
+        hero_subtitle: 'Hand-picked fish updated every morning. Choose your cut, lock your quantity, and we deliver fresh to your doorstep in Ernakulam — all confirmed instantly over WhatsApp.',
+        catch_arrival: 'Catch Arrival',
+        fort_kochi: 'Fort Kochi',
+        next_update: 'Next Update',
+        live_refresh: 'Live Refresh',
+        delivery_window: 'Delivery Window',
+        filter_all: 'All Catch',
+        filter_sea: 'Sea Fish',
+        filter_freshwater: 'Freshwater',
+        filter_premium: 'Premium',
+        fresh_today: 'Fresh Today',
+        limited_stock: 'Limited Stock',
+        order_whatsapp: 'Order via WhatsApp',
+        cta_title: 'Need a custom mix? We’ll pack it for you.',
+        cta_subtitle: 'Send a quick list with quantities — we confirm availability instantly and reserve your slot.',
+        cta_whatsapp: 'WhatsApp e-Theeram Foods',
+        footer_line: 'e-Theeram Foods • Fresh catch updates daily • Serving select Ernakulam zones only',
+        footer_made: 'Made with love',
+        footer_by: 'by Sree',
+        closed: 'Closed',
+        opens_at: 'Opens'
+      },
+      Malayalam: {
+        live_market_updated: 'ലൈവ് മാർക്കറ്റ് • അപ്ഡേറ്റ് ചെയ്തത്',
+        ernakulam_zone_only: 'എറണാകുളം മേഖല മാത്രം',
+        whatsapp_orders: 'വാട്സ്ആപ്പ് ഓർഡർസ്:',
+        nav_home: 'ഹോം',
+        nav_today_catch: 'ഇന്നത്തെ പിടിത്തം',
+        nav_service_zones: 'സേവന മേഖലകൾ',
+        browse_catch: 'കാച്ച് കാണുക',
+        quick_order_whatsapp: 'വാട്സ്ആപ്പിൽ ഓർഡർ ചെയ്യുക',
+        banner_fresh_catch: 'ഇന്നത്തെ ഫ്രെഷ് കാച്ച്',
+        banner_limited_stock: 'ലിമിറ്റഡ് സ്റ്റോക്ക് എത്തുന്നു',
+        hero_title: 'e-Theeram Foods ലൈവ് ഫിഷ് മാർക്കറ്റ് നിങ്ങളുടെ ഫോണിലേക്കാണ് കൊണ്ടുവരുന്നത്.',
+        hero_subtitle: 'ഓരോ പ്രഭാതവും അപ്ഡേറ്റ് ചെയ്യുന്ന കൈത്തിരഞ്ഞെടുത്ത മീൻ. നിങ്ങൾക്ക് ഇഷ്ടമുള്ള കട്ട് തിരഞ്ഞെടുക്കൂ, അളവ് സ്ഥിരീകരിക്കൂ — എറണാകുളത്ത് വീട്ടിലെത്തിക്കുന്നു.',
+        catch_arrival: 'കാച്ച് എത്തുന്നത്',
+        fort_kochi: 'ഫോർട്ട് കൊച്ചി',
+        next_update: 'അടുത്ത അപ്ഡേറ്റ്',
+        live_refresh: 'ലൈവ് റിഫ്രെഷ്',
+        delivery_window: 'ഡെലിവറി സമയം',
+        filter_all: 'എല്ലാ കാച്ചും',
+        filter_sea: 'കടൽ മീൻ',
+        filter_freshwater: 'തണ്ണീർമീൻ',
+        filter_premium: 'പ്രീമിയം',
+        fresh_today: 'ഇന്നത്തെ ഫ്രെഷ്',
+        limited_stock: 'ലിമിറ്റഡ് സ്റ്റോക്ക്',
+        order_whatsapp: 'വാട്സ്ആപ്പിൽ ഓർഡർ ചെയ്യുക',
+        cta_title: 'കസ്റ്റം മിക്സ് വേണമോ? ഞങ്ങൾ പാക്ക് ചെയ്യും.',
+        cta_subtitle: 'ക്വാണ്ടിറ്റി ലിസ്റ്റ് അയയ്ക്കൂ — ലഭ്യത ഉടൻ സ്ഥിരീകരിക്കും, സ്ലോട്ട് റിസർവ് ചെയ്യും.',
+        cta_whatsapp: 'വാട്സ്ആപ്പ് e-Theeram Foods',
+        footer_line: 'e-Theeram Foods • ദിവസേന ഫ്രെഷ് അപ്ഡേറ്റുകൾ • തിരഞ്ഞെടുക്കപ്പെട്ട എറണാകുളം മേഖലകൾക്ക് സേവനം',
+        footer_made: 'സ്നേഹത്തോടെ നിർമ്മിച്ചത്',
+        footer_by: 'Sree',
+        closed: 'അടച്ചിരിക്കുന്നു',
+        opens_at: 'തുറക്കുന്നത്'
+      }
+    };
+
+    const langLabels = { English: 'English', Malayalam: 'മലയാളം' };
+    let currentLang = 'English';
+
     // Live market time updates
     const liveStatusPill = document.getElementById('liveStatusPill');
     const liveUpdateTime = document.getElementById('liveUpdateTime');
@@ -1116,12 +1296,13 @@
 
     const updateMarketTimes = () => {
       const now = new Date();
+      const t = translations[currentLang] || translations.English;
 
       if (isClosed(now)) {
         if (liveStatusPill) liveStatusPill.classList.add('closed');
-        if (liveUpdateTime) liveUpdateTime.textContent = 'Closed';
-        if (catchTime) catchTime.textContent = 'Closed';
-        if (nextUpdateTime) nextUpdateTime.textContent = 'Opens 4:00 AM';
+        if (liveUpdateTime) liveUpdateTime.textContent = t.closed;
+        if (catchTime) catchTime.textContent = t.closed;
+        if (nextUpdateTime) nextUpdateTime.textContent = `${t.opens_at} 4:00 AM`;
         if (deliveryWindow) deliveryWindow.textContent = '4:00 AM–8:30 PM';
         return;
       }
@@ -1137,7 +1318,23 @@
       }
     };
 
-    updateMarketTimes();
+    const applyTranslations = (lang) => {
+      currentLang = lang;
+      const t = translations[lang] || translations.English;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) el.textContent = t[key];
+      });
+      document.querySelectorAll('.current-lang').forEach(el => {
+        el.textContent = langLabels[lang] || lang;
+      });
+      document.body.classList.toggle('lang-ml', lang === 'Malayalam');
+      updateMarketTimes();
+    };
+
+    const savedLang = localStorage.getItem('etheeram_lang');
+    if (savedLang && translations[savedLang]) currentLang = savedLang;
+    applyTranslations(currentLang);
     setInterval(updateMarketTimes, 60000);
 
     // Mobile topbar menu toggle
@@ -1182,13 +1379,25 @@
 
       options.forEach(option => {
         option.addEventListener('click', () => {
-          if (current) current.textContent = option.textContent.trim();
+          const selected = option.getAttribute('data-lang');
+          const nextLang = selected || 'English';
+          localStorage.setItem('etheeram_lang', nextLang);
+          applyTranslations(nextLang);
           closeLangMenus();
         });
       });
     });
 
-    document.addEventListener('click', closeLangMenus);
+    document.addEventListener('click', (e) => {
+      closeLangMenus();
+      if (mobileMenu && menuToggle) {
+        const clickedInsideMenu = mobileMenu.contains(e.target);
+        const clickedToggle = menuToggle.contains(e.target);
+        if (!clickedInsideMenu && !clickedToggle) {
+          mobileMenu.classList.remove('active');
+        }
+      }
+    });
 
     // WhatsApp order buttons
     const orderButtons = document.querySelectorAll('.order');
@@ -1220,3 +1429,4 @@
   </script>
 </body>
 </html>
+
