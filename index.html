@@ -657,20 +657,17 @@
       .banner {
         width: 100%;
         max-width: 100%;
-        white-space: nowrap;
-        overflow-x: auto;
-        overflow-y: hidden;
-        padding-right: 8px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        font-size: 0.8rem;
+        flex-wrap: wrap;
+        white-space: normal;
+        overflow: hidden;
+        padding-right: 0;
+        font-size: 0.78rem;
+        gap: 6px;
       }
 
-      .banner::-webkit-scrollbar { display: none; }
-
       .banner .icon {
-        width: 14px;
-        height: 14px;
+        width: 12px;
+        height: 12px;
       }
 
       .board-row {
