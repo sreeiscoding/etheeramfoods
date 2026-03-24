@@ -105,12 +105,23 @@
       color: #0a5e49;
     }
 
+    .pill.live.closed {
+      background: rgba(242, 166, 84, 0.2);
+      border-color: rgba(242, 166, 84, 0.5);
+      color: #7a4a12;
+    }
+
     .dot {
       width: 8px;
       height: 8px;
       background: var(--success);
       border-radius: 50%;
       animation: pulse 1.6s infinite;
+    }
+
+    .pill.live.closed .dot {
+      background: var(--warn);
+      animation: none;
     }
 
     @keyframes pulse {
@@ -610,7 +621,7 @@
   <div class="topbar">
     <div class="container statusbar">
       <div class="location">
-        <span class="pill live"><span class="dot"></span> Live Market • Updated <span id="liveUpdateTime">--:--</span></span>
+        <span class="pill live" id="liveStatusPill"><span class="dot"></span> Live Market • Updated <span id="liveUpdateTime">--:--</span></span>
         <span class="pill">
           <span class="icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M12 2c-3.87 0-7 3.13-7 7 0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
@@ -905,6 +916,7 @@
 
   <script>
     // Live market time updates
+    const liveStatusPill = document.getElementById('liveStatusPill');
     const liveUpdateTime = document.getElementById('liveUpdateTime');
     const catchTime = document.getElementById('catchTime');
     const nextUpdateTime = document.getElementById('nextUpdateTime');
@@ -928,6 +940,7 @@
       const now = new Date();
 
       if (isClosed(now)) {
+        if (liveStatusPill) liveStatusPill.classList.add('closed');
         if (liveUpdateTime) liveUpdateTime.textContent = 'Closed';
         if (catchTime) catchTime.textContent = 'Closed';
         if (nextUpdateTime) nextUpdateTime.textContent = 'Opens 4:00 AM';
@@ -935,6 +948,7 @@
         return;
       }
 
+      if (liveStatusPill) liveStatusPill.classList.remove('closed');
       if (liveUpdateTime) liveUpdateTime.textContent = formatTime(now);
       if (catchTime) catchTime.textContent = formatTime(now);
       if (nextUpdateTime) nextUpdateTime.textContent = formatTime(addHours(now, 3));
@@ -962,7 +976,7 @@
       });
     }
 
-    // WhatsApp order buttons
+     // WhatsApp order buttons
     const orderButtons = document.querySelectorAll('.order');
     orderButtons.forEach(btn => {
       const fishName = btn.getAttribute('data-name');
