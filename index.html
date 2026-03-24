@@ -395,10 +395,19 @@
 
     .fish-visual {
       height: 160px;
+      position: relative;
       background:
         radial-gradient(120px 80px at 20% 20%, rgba(255, 255, 255, 0.75), transparent 60%),
-        linear-gradient(120deg, rgba(56, 212, 212, 0.5), rgba(11, 110, 139, 0.5)),
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="240"><path d="M30 120 Q120 40 240 80 Q360 120 480 60 Q540 30 580 70 Q520 120 580 170 Q540 210 480 180 Q360 120 240 160 Q120 200 30 120" fill="%23ffffff" fill-opacity="0.35"/></svg>') center/cover;
+        linear-gradient(120deg, rgba(220, 228, 233, 0.9), rgba(180, 190, 198, 0.9));
+      overflow: hidden;
+    }
+
+    .fish-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="240" height="160" viewBox="0 0 240 160"><g fill="none" stroke="%23ffffff" stroke-width="4" opacity="0.6"><rect x="50" y="40" width="140" height="90" rx="12"/><circle cx="120" cy="85" r="24"/><path d="M80 40l10-18h60l10 18"/></g></svg>') center/120px 80px no-repeat;
+      opacity: 0.8;
     }
 
     .card-body {
@@ -676,6 +685,11 @@
       .board-tag {
         font-size: 0.72rem;
         max-width: 100%;
+      }
+
+      .btn {
+        font-size: 0.85rem;
+        padding: 9px 16px;
       }
     }
 
