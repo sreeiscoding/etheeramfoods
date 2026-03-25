@@ -23,7 +23,11 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
     body {
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
       font-size: 16px;
@@ -34,6 +38,7 @@
         radial-gradient(900px 500px at 100% 0%, rgba(11, 110, 139, 0.18), transparent 60%),
         linear-gradient(180deg, #f6feff 0%, #ecf9fb 65%, #ffffff 100%);
       overflow-x: hidden;
+      max-width: 100%;
     }
 
     body.lang-ml {
@@ -46,6 +51,16 @@
     .container {
       width: min(1240px, 92vw);
       margin: 0 auto;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* Typography stability + wrapping */
+    h1, h2, h3, h4, h5, h6,
+    p, a, span, li, button, label, small, strong, em {
+      overflow-wrap: break-word;
+      word-break: break-word;
+      white-space: normal;
     }
 
     .icon {
@@ -84,6 +99,8 @@
       padding: 14px 0;
     }
 
+    .topbar-inner > * { min-width: 0; }
+
     body.lang-ml .nav-links,
     body.lang-ml .lang-trigger,
     body.lang-ml .lang-option,
@@ -99,6 +116,8 @@
       font-weight: 500;
       font-size: 0.95rem;
     }
+
+    .location > * { min-width: 0; }
 
     body.lang-ml .location {
       font-size: 11px;
@@ -260,6 +279,8 @@
       gap: 12px;
     }
 
+    .topbar-right > * { min-width: 0; }
+
     .menu-toggle {
       display: none;
       width: 40px;
@@ -296,6 +317,8 @@
       gap: 10px;
       font-size: 0.95rem;
       cursor: pointer;
+      white-space: normal;
+      text-align: center;
     }
 
     .btn-primary {
@@ -406,6 +429,8 @@
       border: 1px dashed rgba(6, 43, 58, 0.12);
       text-align: left;
     }
+
+    .board-row > * { min-width: 0; }
 
     .board-row span { font-weight: 600; }
 
@@ -546,6 +571,8 @@
       flex-wrap: wrap;
     }
 
+    .card-actions > * { min-width: 0; }
+
     .badge {
       padding: 5px 10px;
       border-radius: 999px;
@@ -598,6 +625,8 @@
       gap: 12px;
       align-items: center;
     }
+
+    .cta-strip > * { min-width: 0; }
 
     .cta-strip h3 {
       font-family: 'Montserrat', sans-serif;
