@@ -648,48 +648,11 @@
     /* ============================
        Responsive
        ============================ */
-    @media (max-width: 900px) {
-      html {
-        -webkit-text-size-adjust: 100%;
-        text-size-adjust: 100%;
-      }
-
-      body {
-        max-width: 100%;
-        overflow-x: hidden;
-      }
-
-      .container {
-        max-width: 100%;
-        overflow-x: hidden;
-      }
-
-      /* Mobile typography stability + wrapping */
-      h1, h2, h3, h4, h5, h6,
-      p, a, span, li, button, label, small, strong, em {
-        overflow-wrap: break-word;
-        word-break: break-word;
-        white-space: normal;
-      }
-
-      .topbar-inner > *,
-      .location > *,
-      .topbar-right > *,
-      .board-row > *,
-      .card-actions > *,
-      .cta-strip > * {
-        min-width: 0;
-      }
-
-      .btn {
-        white-space: normal;
-        text-align: center;
-      }
-
-      body { font-size: 15px; }
-      body.lang-ml { font-size: 13px; }
-      .hero-grid { grid-template-columns: 1fr; }
-      .topbar-inner { grid-template-columns: 1fr; }
+      @media (max-width: 900px) {
+        body { font-size: 15px; }
+        body.lang-ml { font-size: 13px; }
+        .hero-grid { grid-template-columns: 1fr; }
+        .topbar-inner { grid-template-columns: 1fr; }
       .topbar-actions { justify-content: flex-start; flex-wrap: wrap; }
       .hero { text-align: center; }
       .hero h1 { font-size: clamp(2rem, 7.2vw, 2.8rem); }
@@ -770,11 +733,11 @@
       }
     }
 
-    @media (max-width: 700px) {
-      .nav-links { display: none; }
-      .topbar-actions { display: none; }
-      .menu-toggle { display: inline-flex; }
-      .lang-dropdown { display: none; }
+      @media (max-width: 700px) {
+        .nav-links { display: none; }
+        .topbar-actions { display: none; }
+        .menu-toggle { display: inline-flex; }
+        .lang-dropdown { display: none; }
       .mobile-menu {
         position: absolute;
         right: 12px;
@@ -802,18 +765,20 @@
         font-size: 11px;
       }
 
-      .location {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        gap: 12px;
-        padding-bottom: 6px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-      }
+        .location {
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          gap: 10px;
+          padding-bottom: 8px;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+          touch-action: pan-x;
+        }
 
-      .location::-webkit-scrollbar {
-        display: none;
-      }
+        .location::-webkit-scrollbar { display: none; }
+
+        .location .pill { white-space: nowrap; }
+
 
       .card-actions {
         flex-direction: column;
