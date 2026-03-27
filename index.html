@@ -8,31 +8,34 @@
     /* ============================
        e-Theeram Foods — Live Market UI
        ============================ */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700&family=Noto+Sans+Malayalam:wght@300;400;500;600&family=Manjari:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Nunito:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@300;400;500;600&family=Manjari:wght@400;700&display=swap');
 
     :root {
-        --deep: #0b1f26;
-        --ocean: #0f5a6f;
-        --aqua: #1fb6aa;
-        --foam: #e9f7f5;
-        --mist: rgba(255, 255, 255, 0.7);
-        --shadow: 0 18px 40px rgba(7, 24, 30, 0.16);
-        --line: rgba(11, 31, 38, 0.12);
-        --success: #18a97a;
+        --deep: #071a24;
+        --ocean: #0b6e8b;
+        --aqua: #1dbf7a;
+        --deep-rgb: 7, 26, 36;
+        --ocean-rgb: 11, 110, 139;
+        --aqua-rgb: 29, 191, 122;
+        --foam: #e8f7f2;
+        --mist: rgba(244, 251, 249, 0.72);
+        --shadow: 0 18px 40px rgba(7, 26, 36, 0.18);
+        --line: rgba(var(--ocean-rgb), 0.16);
+        --success: #17a86e;
         --warn: #f2a654;
       }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      font-family: 'Nunito', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
       font-size: 16px;
       line-height: 1.6;
       color: var(--deep);
         background:
-          radial-gradient(900px 500px at 5% -10%, rgba(31, 182, 170, 0.22), transparent 60%),
-          radial-gradient(900px 500px at 100% 0%, rgba(15, 90, 111, 0.18), transparent 60%),
-          linear-gradient(180deg, #f6fbfb 0%, #eef8f7 65%, #ffffff 100%);
+          radial-gradient(900px 500px at 5% -10%, rgba(var(--aqua-rgb), 0.22), transparent 60%),
+          radial-gradient(900px 500px at 100% 0%, rgba(var(--ocean-rgb), 0.2), transparent 60%),
+          linear-gradient(180deg, #f5fbf9 0%, #eef8f5 65%, #ffffff 100%);
       overflow-x: hidden;
     }
 
@@ -41,7 +44,43 @@
       font-family: 'Noto Sans Malayalam', 'Inter', sans-serif;
     }
 
+    h1, h2, h3, h4, h5, h6,
+    .brand,
+    .nav-links,
+    .pill,
+    .lang-trigger,
+    .lang-option,
+    .filter-btn,
+    .badge,
+    .board-tag,
+    .price,
+    .banner,
+    .menu-toggle {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--ocean);
+    }
+
+    body.lang-ml .brand,
+    body.lang-ml .nav-links,
+    body.lang-ml .pill,
+    body.lang-ml .lang-trigger,
+    body.lang-ml .lang-option,
+    body.lang-ml .filter-btn,
+    body.lang-ml .badge,
+    body.lang-ml .board-tag,
+    body.lang-ml .price,
+    body.lang-ml .banner {
+      font-family: 'Noto Sans Malayalam', 'Inter', sans-serif;
+    }
+
     a { color: inherit; text-decoration: none; }
+
+    .btn {
+      font-family: inherit;
+    }
 
     .container {
       width: min(1240px, 92vw);
@@ -110,7 +149,7 @@
     .pill {
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(6, 43, 58, 0.06);
+      background: rgba(var(--ocean-rgb), 0.06);
       border: 1px solid var(--line);
       font-size: 0.9rem;
       display: inline-flex;
@@ -120,9 +159,9 @@
     }
 
     .pill.live {
-      background: rgba(29, 191, 141, 0.15);
-      border-color: rgba(29, 191, 141, 0.35);
-      color: #0a5e49;
+      background: rgba(var(--aqua-rgb), 0.15);
+      border-color: rgba(var(--aqua-rgb), 0.35);
+      color: #0b5a45;
     }
 
     body.lang-ml .pill.live,
@@ -165,10 +204,11 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
       letter-spacing: 0.2px;
       white-space: nowrap;
+      color: var(--ocean);
     }
 
     .brand-logo {
@@ -186,7 +226,7 @@
       gap: 18px;
       font-weight: 500;
       font-size: 0.95rem;
-      color: rgba(6, 43, 58, 0.8);
+      color: var(--ocean);
     }
 
     .nav-links a {
@@ -206,7 +246,7 @@
       transition: width 0.25s ease;
     }
 
-    .nav-links a:hover { color: var(--deep); }
+    .nav-links a:hover { color: var(--ocean); }
     .nav-links a:hover::after { width: 100%; }
 
     .lang-dropdown {
@@ -223,7 +263,7 @@
       background: rgba(255, 255, 255, 0.7);
       font-weight: 600;
       font-size: 0.9rem;
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      font-family: 'Poppins', sans-serif;
       cursor: pointer;
     }
 
@@ -254,7 +294,7 @@
     }
 
     .lang-option:hover {
-      background: rgba(6, 43, 58, 0.06);
+      background: rgba(var(--ocean-rgb), 0.06);
     }
 
     .topbar-right {
@@ -277,7 +317,7 @@
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .menu-toggle:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(3, 27, 36, 0.12); }
+    .menu-toggle:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(var(--deep-rgb), 0.12); }
 
     .mobile-menu {
       display: none;
@@ -305,16 +345,20 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--ocean), #0a3f4c);
-      color: white;
-      box-shadow: 0 12px 26px rgba(10, 63, 76, 0.26);
+      background: var(--aqua);
+      color: #ffffff;
+      box-shadow: 0 10px 22px rgba(var(--aqua-rgb), 0.22);
     }
 
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(10, 63, 76, 0.34); }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(var(--aqua-rgb), 0.28);
+    }
 
     .btn-ghost {
-      background: rgba(255, 255, 255, 0.7);
-      border: 1px solid var(--line);
+      background: rgba(var(--aqua-rgb), 0.08);
+      border: 1px solid rgba(var(--aqua-rgb), 0.35);
+      color: var(--aqua);
     }
 
     /* ============================
@@ -323,6 +367,9 @@
     .hero {
       padding: 70px 0 50px;
       position: relative;
+      background:
+        radial-gradient(900px 500px at 15% 0%, rgba(var(--aqua-rgb), 0.18), transparent 60%),
+        radial-gradient(800px 480px at 90% 10%, rgba(var(--ocean-rgb), 0.22), transparent 65%);
     }
 
     .hero-grid {
@@ -337,8 +384,8 @@
     }
 
     .hero h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: clamp(2.8rem, 4.6vw, 4.4rem);
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2.6rem, 4.2vw, 4.1rem);
       line-height: 1.05;
       margin-bottom: 20px;
       letter-spacing: -0.02em;
@@ -346,7 +393,10 @@
 
     body.lang-ml h1,
     body.lang-ml h2,
-    body.lang-ml h3 {
+    body.lang-ml h3,
+    body.lang-ml h4,
+    body.lang-ml h5,
+    body.lang-ml h6 {
       font-family: 'Manjari', 'Poppins', sans-serif;
     }
 
@@ -367,11 +417,11 @@
       gap: 10px;
       align-items: center;
       flex-wrap: nowrap;
-      background: rgba(56, 212, 212, 0.16);
-      border: 1px solid rgba(56, 212, 212, 0.4);
+      background: rgba(var(--aqua-rgb), 0.14);
+      border: 1px solid rgba(var(--aqua-rgb), 0.38);
       padding: 10px 14px;
       border-radius: 14px;
-      font-weight: 600;
+      font-weight: 500;
       width: fit-content;
       margin-bottom: 22px;
       color: var(--deep);
@@ -409,7 +459,7 @@
       padding: 14px;
       border-radius: 14px;
       background: rgba(255, 255, 255, 0.6);
-      border: 1px dashed rgba(6, 43, 58, 0.12);
+      border: 1px dashed rgba(var(--deep-rgb), 0.12);
       text-align: left;
     }
 
@@ -463,9 +513,9 @@
     }
 
     .filter-btn.active {
-      background: var(--deep);
+      background: var(--aqua);
       color: white;
-      border-color: var(--deep);
+      border-color: var(--aqua);
     }
 
     /* ============================
@@ -491,7 +541,7 @@
 
     .card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 20px 46px rgba(3, 27, 36, 0.22);
+      box-shadow: 0 20px 46px rgba(var(--deep-rgb), 0.22);
     }
 
     .fish-visual {
@@ -519,14 +569,14 @@
 
     .card h3 {
       font-size: 1.15rem;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Poppins', sans-serif;
       line-height: 1.3;
     }
 
     .price {
       font-weight: 600;
-      font-size: 1.2rem;
-      color: var(--ocean);
+      font-size: 1.1rem;
+      color: var(--aqua);
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -557,8 +607,8 @@
     .badge {
       padding: 5px 10px;
       border-radius: 999px;
-      background: rgba(29, 191, 141, 0.16);
-      border: 1px solid rgba(29, 191, 141, 0.4);
+      background: rgba(var(--aqua-rgb), 0.16);
+      border: 1px solid rgba(var(--aqua-rgb), 0.4);
       font-weight: 600;
       font-size: 0.78rem;
       display: inline-flex;
@@ -579,8 +629,8 @@
     .order {
       width: auto;
       justify-content: center;
-      background: rgba(6, 43, 58, 0.06);
-      border: 1px solid var(--line);
+      background: rgba(var(--aqua-rgb), 0.1);
+      border: 1px solid rgba(var(--aqua-rgb), 0.4);
       padding: 8px 14px;
       font-size: 0.85rem;
     }
@@ -598,8 +648,8 @@
        ============================ */
     .cta-strip {
       margin: 10px 0 60px;
-      background: linear-gradient(135deg, rgba(11, 110, 139, 0.1), rgba(56, 212, 212, 0.2));
-      border: 1px solid rgba(11, 110, 139, 0.3);
+      background: linear-gradient(135deg, rgba(var(--ocean-rgb), 0.18), rgba(var(--aqua-rgb), 0.28));
+      border: 1px solid rgba(var(--ocean-rgb), 0.3);
       border-radius: 20px;
       padding: 28px;
       display: grid;
@@ -609,7 +659,7 @@
 
 
     .cta-strip h3 {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.9rem;
       line-height: 1.2;
     }
@@ -632,6 +682,7 @@
       font-size: 0.9rem;
       opacity: 0.75;
       text-align: center;
+      color: var(--ocean);
     }
 
     .footer-made {
