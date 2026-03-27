@@ -1402,7 +1402,15 @@
       updateMarketTimes();
     };
 
-    const savedLang = localStorage.getItem('etheeram_lang');
+    const getSavedLang = () => {
+      try { return localStorage.getItem('etheeram_lang'); } catch (e) { return null; }
+    };
+
+    const setSavedLang = (lang) => {
+      try { localStorage.setItem('etheeram_lang', lang); } catch (e) {}
+    };
+
+    const savedLang = getSavedLang();
     if (savedLang && translations[savedLang]) currentLang = savedLang;
     applyTranslations(currentLang);
     setInterval(updateMarketTimes, 60000);
@@ -1451,7 +1459,7 @@
         option.addEventListener('click', () => {
           const selected = option.getAttribute('data-lang');
           const nextLang = selected || 'English';
-          localStorage.setItem('etheeram_lang', nextLang);
+          setSavedLang(nextLang);
           applyTranslations(nextLang);
           closeLangMenus();
         });
